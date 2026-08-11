@@ -1,67 +1,16 @@
-import React, { useState, useEffect } from 'react';
-import { X, Dumbbell, Activity, CheckCircle2, ArrowRightLeft, Target, Video, ExternalLink, RotateCcw, AlertTriangle, PlayCircle, Loader2, Shuffle } from 'lucide-react';
+import React from 'react';
+import { X, Dumbbell, Activity, CheckCircle2, ArrowRightLeft, Target, Video, ExternalLink, RotateCcw, AlertTriangle, PlayCircle } from 'lucide-react';
 import { getExerciseDetails } from '../data/exerciseDatabase';
-import { searchExerciseVideo, isYouTubeApiConfigured } from '../utils/youtubeSearch';
+// Build v2.2 - Static YouTube Embeds Only (API key removed for security)
 
 export default function ExerciseDetailModal({ isOpen, onClose, exercise, onSwapAlternative, onRevertOriginal }) {
-  const [liveVideoId, setLiveVideoId] = useState(null);
-  const [liveVideoTitle, setLiveVideoTitle] = useState('');
-  const [isLoadingVideo, setIsLoadingVideo] = useState(false);
-  const [isLiveVideo, setIsLiveVideo] = useState(false);
-
   const info = isOpen && exercise ? getExerciseDetails(exercise.name) : null;
-  const fallbackEmbedId = info?.youtubeEmbedId || 'eG9iU9wuUu4';
-
-  // Fetch a random video when modal opens
-  useEffect(() => {
-    if (!isOpen || !exercise || !info) {
-      setLiveVideoId(null);
-      setLiveVideoTitle('');
-      setIsLiveVideo(false);
-      return;
-    }
-
-    if (!isYouTubeApiConfigured()) {
-      setLiveVideoId(fallbackEmbedId);
-      setIsLiveVideo(false);
-      return;
-    }
-
-    let cancelled = false;
-    setIsLoadingVideo(true);
-    setLiveVideoId(null);
-
-    const searchQuery = info.videoSearch || `${info.name} form guide`;
-    searchExerciseVideo(searchQuery, fallbackEmbedId).then(result => {
-      if (!cancelled) {
-        setLiveVideoId(result.videoId);
-        setLiveVideoTitle(result.title);
-        setIsLiveVideo(result.isLive);
-        setIsLoadingVideo(false);
-      }
-    });
-
-    return () => { cancelled = true; };
-  }, [isOpen, exercise?.name]);
-
-  // Shuffle to get a new random video
-  const handleShuffleVideo = () => {
-    if (!info || !isYouTubeApiConfigured()) return;
-    setIsLoadingVideo(true);
-    const searchQuery = info.videoSearch || `${info.name} form guide`;
-    searchExerciseVideo(searchQuery, fallbackEmbedId).then(result => {
-      setLiveVideoId(result.videoId);
-      setLiveVideoTitle(result.title);
-      setIsLiveVideo(result.isLive);
-      setIsLoadingVideo(false);
-    });
-  };
 
   if (!isOpen || !exercise) return null;
 
+  const embedId = info?.youtubeEmbedId || 'eG9iU9wuUu4';
   const youtubeUrl = `https://www.youtube.com/results?search_query=${encodeURIComponent(info.videoSearch || `${info.name} form guide`)}`;
   const guideUrl = info.guideUrl || `https://www.muscleandstrength.com/exercises?search=${encodeURIComponent(info.name)}`;
-  const currentEmbedId = liveVideoId || fallbackEmbedId;
 
   const isSubstituted = exercise.isSubstituted;
   const originalName = exercise.originalName || exercise.name;
@@ -108,72 +57,28 @@ export default function ExerciseDetailModal({ isOpen, onClose, exercise, onSwapA
           </div>
         )}
 
-        {/* Embedded YouTube Video Player — Dynamic or Fallback */}
+        {/* Embedded YouTube Video Player — Static Embed */}
         <div style={{ background: 'rgba(0, 0, 0, 0.4)', borderRadius: 'var(--radius-md)', border: '1px solid var(--border-color)', overflow: 'hidden' }}>
-          <div style={{ padding: '0.6rem 1rem', background: 'rgba(6, 182, 212, 0.1)', borderBottom: '1px solid var(--border-color)', fontSize: '0.85rem', fontWeight: 700, color: 'var(--primary-cyan)', display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: '0.4rem' }}>
-            <div style={{ display: 'flex', alignItems: 'center', gap: '0.4rem' }}>
-              <PlayCircle size={16} />
-              <span>Video Minh Họa Kỹ Thuật Tập</span>
-              {isLiveVideo && (
-                <span style={{ fontSize: '0.65rem', background: 'rgba(239, 68, 68, 0.2)', color: '#f87171', padding: '0.15rem 0.5rem', borderRadius: '999px', fontWeight: 600 }}>
-                  🔴 LIVE FETCH
-                </span>
-              )}
-            </div>
-            {isYouTubeApiConfigured() && (
-              <button
-                onClick={handleShuffleVideo}
-                disabled={isLoadingVideo}
-                style={{
-                  background: 'rgba(139, 92, 246, 0.15)',
-                  border: '1px solid rgba(139, 92, 246, 0.4)',
-                  color: '#c084fc',
-                  padding: '0.25rem 0.6rem',
-                  borderRadius: 'var(--radius-sm)',
-                  fontSize: '0.75rem',
-                  fontWeight: 600,
-                  cursor: isLoadingVideo ? 'not-allowed' : 'pointer',
-                  display: 'flex',
-                  alignItems: 'center',
-                  gap: '0.3rem',
-                  opacity: isLoadingVideo ? 0.5 : 1,
-                  transition: 'all 0.2s ease'
-                }}
-              >
-                <Shuffle size={12} /> Video Khác
-              </button>
-            )}
+          <div style={{ padding: '0.6rem 1rem', background: 'rgba(6, 182, 212, 0.1)', borderBottom: '1px solid var(--border-color)', fontSize: '0.85rem', fontWeight: 700, color: 'var(--primary-cyan)', display: 'flex', alignItems: 'center', gap: '0.4rem' }}>
+            <PlayCircle size={16} />
+            <span>Video Minh Họa Kỹ Thuật Tập</span>
           </div>
-          {isLoadingVideo ? (
-            <div style={{ position: 'relative', paddingBottom: '56.25%', height: 0, overflow: 'hidden', background: 'rgba(0,0,0,0.6)' }}>
-              <div style={{ position: 'absolute', top: '50%', left: '50%', transform: 'translate(-50%, -50%)', display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '0.75rem' }}>
-                <Loader2 size={32} style={{ color: 'var(--primary-cyan)', animation: 'spin 1s linear infinite' }} />
-                <span style={{ fontSize: '0.85rem', color: 'var(--text-muted)' }}>Đang tìm video minh họa...</span>
-              </div>
-            </div>
-          ) : (
-            <div style={{ position: 'relative', paddingBottom: '56.25%', height: 0, overflow: 'hidden' }}>
-              <iframe
-                src={`https://www.youtube.com/embed/${currentEmbedId}?autoplay=0&rel=0`}
-                title={`Video demo ${info.name}`}
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                allowFullScreen
-                style={{
-                  position: 'absolute',
-                  top: 0,
-                  left: 0,
-                  width: '100%',
-                  height: '100%',
-                  border: 0
-                }}
-              />
-            </div>
-          )}
-          {isLiveVideo && liveVideoTitle && (
-            <div style={{ padding: '0.5rem 1rem', fontSize: '0.78rem', color: 'var(--text-muted)', borderTop: '1px solid var(--border-color)', background: 'rgba(0,0,0,0.2)' }}>
-              📺 {liveVideoTitle}
-            </div>
-          )}
+          <div style={{ position: 'relative', paddingBottom: '56.25%', height: 0, overflow: 'hidden' }}>
+            <iframe
+              src={`https://www.youtube.com/embed/${embedId}?autoplay=0&rel=0`}
+              title={`Video demo ${info.name}`}
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowFullScreen
+              style={{
+                position: 'absolute',
+                top: 0,
+                left: 0,
+                width: '100%',
+                height: '100%',
+                border: 0
+              }}
+            />
+          </div>
         </div>
 
         {/* Muscle Anatomy Badges */}
