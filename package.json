@@ -7,7 +7,7 @@
   "scripts": {
     "backend": "node backend/server.js",
     "frontend": "vite frontend",
-    "build": "vite build frontend",
+    "build": "vite build",
     "predeploy": "npm run build",
     "deploy": "gh-pages -d dist",
     "start": "node backend/server.js"
