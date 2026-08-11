@@ -1,5 +1,5 @@
 import React from 'react';
-import { X, Dumbbell, Activity, CheckCircle2, ArrowRightLeft, Target, Video, ExternalLink, RotateCcw, AlertTriangle } from 'lucide-react';
+import { X, Dumbbell, Activity, CheckCircle2, ArrowRightLeft, Target, Video, ExternalLink, RotateCcw, AlertTriangle, PlayCircle } from 'lucide-react';
 import { getExerciseDetails } from '../data/exerciseDatabase';
 
 export default function ExerciseDetailModal({ isOpen, onClose, exercise, onSwapAlternative, onRevertOriginal }) {
@@ -8,6 +8,7 @@ export default function ExerciseDetailModal({ isOpen, onClose, exercise, onSwapA
   const info = getExerciseDetails(exercise.name);
   const youtubeUrl = `https://www.youtube.com/results?search_query=${encodeURIComponent(info.videoSearch || `${info.name} form guide`)}`;
   const guideUrl = info.guideUrl || `https://www.muscleandstrength.com/exercises?search=${encodeURIComponent(info.name)}`;
+  const embedId = info.youtubeEmbedId || 'eG9iU9wuUu4';
 
   const isSubstituted = exercise.isSubstituted;
   const originalName = exercise.originalName || exercise.name;
@@ -54,6 +55,29 @@ export default function ExerciseDetailModal({ isOpen, onClose, exercise, onSwapA
           </div>
         )}
 
+        {/* Embedded YouTube Video Player */}
+        <div style={{ background: 'rgba(0, 0, 0, 0.4)', borderRadius: 'var(--radius-md)', border: '1px solid var(--border-color)', overflow: 'hidden' }}>
+          <div style={{ padding: '0.6rem 1rem', background: 'rgba(6, 182, 212, 0.1)', borderBottom: '1px solid var(--border-color)', fontSize: '0.85rem', fontWeight: 700, color: 'var(--primary-cyan)', display: 'flex', alignItems: 'center', gap: '0.4rem' }}>
+            <PlayCircle size={16} /> Video Minh Họa Trực Tiếp Kỹ Thuật Tập (Video Demo)
+          </div>
+          <div style={{ position: 'relative', paddingBottom: '56.25%', height: 0, overflow: 'hidden' }}>
+            <iframe
+              src={`https://www.youtube.com/embed/${embedId}?autoplay=0&rel=0`}
+              title={`Video demo ${info.name}`}
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowFullScreen
+              style={{
+                position: 'absolute',
+                top: 0,
+                left: 0,
+                width: '100%',
+                height: '100%',
+                border: 0
+              }}
+            />
+          </div>
+        </div>
+
         {/* Muscle Anatomy Badges */}
         <div style={{ background: 'rgba(0,0,0,0.3)', padding: '1rem', borderRadius: 'var(--radius-md)', border: '1px solid var(--border-color)' }}>
           <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', fontWeight: 700, fontSize: '0.9rem', color: 'var(--accent-emerald)', marginBottom: '0.6rem' }}>
@@ -82,10 +106,10 @@ export default function ExerciseDetailModal({ isOpen, onClose, exercise, onSwapA
           </div>
         </div>
 
-        {/* Online Reference Guides */}
+        {/* External Links */}
         <div style={{ background: 'rgba(6, 182, 212, 0.08)', padding: '1rem', borderRadius: 'var(--radius-md)', border: '1px solid rgba(6, 182, 212, 0.2)' }}>
           <div style={{ fontSize: '0.875rem', fontWeight: 700, color: 'var(--primary-cyan)', marginBottom: '0.6rem', display: 'flex', alignItems: 'center', gap: '0.4rem' }}>
-            <Video size={16} /> Nguồn Hướng Dẫn & Video Minh Họa Online
+            <Video size={16} /> Nguồn Tham Khảo Bổ Sung (External Links)
           </div>
           <div style={{ display: 'flex', gap: '0.6rem', flexWrap: 'wrap' }}>
             <a
@@ -95,7 +119,7 @@ export default function ExerciseDetailModal({ isOpen, onClose, exercise, onSwapA
               class="btn"
               style={{ fontSize: '0.8rem', borderColor: '#ef4444', color: '#f87171', background: 'rgba(239, 68, 68, 0.1)' }}
             >
-              <Video size={14} /> Watch Video Form Guide (YouTube)
+              <Video size={14} /> Search More Videos on YouTube
             </a>
             <a
               href={guideUrl}

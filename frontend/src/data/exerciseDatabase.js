@@ -1,6 +1,6 @@
 /**
  * Exercise Knowledge Base & Alternative Exercise Database
- * Contains muscle targets, form guides, online references, and same-muscle alternative exercises.
+ * Contains muscle targets, form guides, online references, embedded video IDs, and same-muscle alternative exercises.
  */
 
 export const EXERCISE_DATABASE = {
@@ -22,7 +22,8 @@ export const EXERCISE_DATABASE = {
       { name: 'Machine Chest Fly', desc: 'Máy ép ngực đứng / ngồi' }
     ],
     guideUrl: 'https://www.muscleandstrength.com/exercises/pec-deck.html',
-    videoSearch: 'Pec Deck Fly proper form guide'
+    videoSearch: 'Pec Deck Fly proper form guide',
+    youtubeEmbedId: 'eG9iU9wuUu4'
   },
   'incline dumbbell chest press': {
     name: 'Incline Dumbbell Chest Press',
@@ -40,7 +41,8 @@ export const EXERCISE_DATABASE = {
       { name: 'Incline Chest Press Machine', desc: 'Máy đẩy ngực dốc lên' }
     ],
     guideUrl: 'https://www.muscleandstrength.com/exercises/incline-dumbbell-bench-press.html',
-    videoSearch: 'Incline Dumbbell Chest Press form guide'
+    videoSearch: 'Incline Dumbbell Chest Press form guide',
+    youtubeEmbedId: '8iPEnn-ltC8'
   },
   'shoulder press machine': {
     name: 'Shoulder Press Machine',
@@ -58,7 +60,8 @@ export const EXERCISE_DATABASE = {
       { name: 'Smith Shoulder Press', desc: 'Đẩy vai trên máy Smith' }
     ],
     guideUrl: 'https://www.muscleandstrength.com/exercises/machine-shoulder-press.html',
-    videoSearch: 'Shoulder Press Machine proper execution'
+    videoSearch: 'Shoulder Press Machine proper execution',
+    youtubeEmbedId: 'WvLMauqrnK8'
   },
   'chest supported dumbbell lateral raise': {
     name: 'Chest Supported Dumbbell Lateral Raise',
@@ -76,7 +79,8 @@ export const EXERCISE_DATABASE = {
       { name: 'Machine Lateral Raise', desc: 'Máy dang vai ngồi' }
     ],
     guideUrl: 'https://www.muscleandstrength.com/exercises/dumbbell-lateral-raise.html',
-    videoSearch: 'Chest Supported Dumbbell Lateral Raise guide'
+    videoSearch: 'Chest Supported Dumbbell Lateral Raise guide',
+    youtubeEmbedId: '3VcKaXpzqRo'
   },
   'overhead cable triceps extension': {
     name: 'Overhead Cable Triceps Extension',
@@ -94,7 +98,8 @@ export const EXERCISE_DATABASE = {
       { name: 'Skullcrusher (Lying Triceps Extension)', desc: 'Nằm duỗi tay sau tạ EZ' }
     ],
     guideUrl: 'https://www.muscleandstrength.com/exercises/overhead-cable-tricep-extension.html',
-    videoSearch: 'Overhead Cable Triceps Extension technique'
+    videoSearch: 'Overhead Cable Triceps Extension technique',
+    youtubeEmbedId: '1u18yJQLhhQ'
   },
 
   // --- PULL EXERCISES ---
@@ -114,7 +119,8 @@ export const EXERCISE_DATABASE = {
       { name: 'Machine Pullover', desc: 'Máy kéo xô Pullover' }
     ],
     guideUrl: 'https://www.muscleandstrength.com/exercises/straight-arm-pulldown.html',
-    videoSearch: 'Straight Arm Pulldown form tutorial'
+    videoSearch: 'Straight Arm Pulldown form tutorial',
+    youtubeEmbedId: 'G9uNaXZbf8U'
   },
   'lat pulldown': {
     name: 'Lat Pulldown',
@@ -132,7 +138,8 @@ export const EXERCISE_DATABASE = {
       { name: 'Neutral Grip Lat Pulldown', desc: 'Kéo xô tay cầm song song' }
     ],
     guideUrl: 'https://www.muscleandstrength.com/exercises/lat-pull-down.html',
-    videoSearch: 'Lat Pulldown proper technique guide'
+    videoSearch: 'Lat Pulldown proper technique guide',
+    youtubeEmbedId: 'CAwf7n6Luuc'
   },
   'chest supported t-bar row': {
     name: 'Chest Supported T-Bar Row',
@@ -150,7 +157,8 @@ export const EXERCISE_DATABASE = {
       { name: 'Meadows Row', desc: 'Kéo xô ngang tạ đòn đơn' }
     ],
     guideUrl: 'https://www.muscleandstrength.com/exercises/t-bar-row-with-handle.html',
-    videoSearch: 'Chest Supported T-Bar Row guide'
+    videoSearch: 'Chest Supported T-Bar Row guide',
+    youtubeEmbedId: 'j3Igk5nyZE4'
   },
   'seated cable row': {
     name: 'Seated Cable Row',
@@ -168,7 +176,8 @@ export const EXERCISE_DATABASE = {
       { name: 'Inverted Row', desc: 'Kéo người ngửa dưới thanh xà' }
     ],
     guideUrl: 'https://www.muscleandstrength.com/exercises/seated-cable-row.html',
-    videoSearch: 'Seated Cable Row form tutorial'
+    videoSearch: 'Seated Cable Row form tutorial',
+    youtubeEmbedId: 'GZbfZ033fBo'
   },
   'pec deck rear delt fly': {
     name: 'Pec Deck Rear Delt Fly',
@@ -186,7 +195,8 @@ export const EXERCISE_DATABASE = {
       { name: 'Cable Rear Delt Fly', desc: 'Dang vai sau với dây cáp bắt chéo' }
     ],
     guideUrl: 'https://www.muscleandstrength.com/exercises/reverse-machine-fly.html',
-    videoSearch: 'Pec Deck Rear Delt Fly execution'
+    videoSearch: 'Pec Deck Rear Delt Fly execution',
+    youtubeEmbedId: 't1p0zN6oY-U'
   },
   'ez bar cable bicep curl': {
     name: 'EZ Bar Cable Bicep Curl',
@@ -204,7 +214,8 @@ export const EXERCISE_DATABASE = {
       { name: 'Hammer Curl', desc: 'Cuốn tay trước tạ đơn kiểu dập búa' }
     ],
     guideUrl: 'https://www.muscleandstrength.com/exercises/cable-curl.html',
-    videoSearch: 'EZ Bar Cable Bicep Curl form'
+    videoSearch: 'EZ Bar Cable Bicep Curl form',
+    youtubeEmbedId: 'kwG2ipFRgfo'
   },
 
   // --- LEG / LOWER EXERCISES ---
@@ -224,7 +235,8 @@ export const EXERCISE_DATABASE = {
       { name: 'Swiss Ball Leg Curl', desc: 'Móc đùi sau với bóng tập' }
     ],
     guideUrl: 'https://www.muscleandstrength.com/exercises/lying-leg-curl.html',
-    videoSearch: 'Lying Leg Curl proper technique'
+    videoSearch: 'Lying Leg Curl proper technique',
+    youtubeEmbedId: '1Tq3QdYUuHs'
   },
   'leg extension': {
     name: 'Leg Extension',
@@ -242,7 +254,8 @@ export const EXERCISE_DATABASE = {
       { name: 'Spanish Squat', desc: 'Squat tựa dây kháng lực tập đùi trước' }
     ],
     guideUrl: 'https://www.muscleandstrength.com/exercises/leg-extension.html',
-    videoSearch: 'Leg Extension form tutorial'
+    videoSearch: 'Leg Extension form tutorial',
+    youtubeEmbedId: 'YyvSfVjQeL0'
   },
   'hack squat': {
     name: 'Hack Squat',
@@ -260,7 +273,8 @@ export const EXERCISE_DATABASE = {
       { name: 'Smith Machine Squat', desc: 'Squat trên máy Smith' }
     ],
     guideUrl: 'https://www.muscleandstrength.com/exercises/hack-squat.html',
-    videoSearch: 'Hack Squat machine execution'
+    videoSearch: 'Hack Squat machine execution',
+    youtubeEmbedId: '0tn5K9NlCfo'
   },
   'leg press': {
     name: 'Leg Press',
@@ -278,7 +292,8 @@ export const EXERCISE_DATABASE = {
       { name: 'Barbell Squat', desc: 'Squat gánh thanh đòn' }
     ],
     guideUrl: 'https://www.muscleandstrength.com/exercises/sled-45-degree-leg-press.html',
-    videoSearch: 'Leg Press 45 degree proper form'
+    videoSearch: 'Leg Press 45 degree proper form',
+    youtubeEmbedId: 'IZxyjWCy360'
   },
   'bulgarian split squat': {
     name: 'Bulgarian Split Squat',
@@ -296,7 +311,8 @@ export const EXERCISE_DATABASE = {
       { name: 'Step-ups', desc: 'Bước lên bục cao với tạ đơn' }
     ],
     guideUrl: 'https://www.muscleandstrength.com/exercises/bulgarian-split-squat.html',
-    videoSearch: 'Bulgarian Split Squat tutorial'
+    videoSearch: 'Bulgarian Split Squat tutorial',
+    youtubeEmbedId: '2C-uNgKwple'
   },
   'standing calf raise': {
     name: 'Standing Calf Raise',
@@ -314,7 +330,8 @@ export const EXERCISE_DATABASE = {
       { name: 'Single Leg Calf Raise', desc: 'Nhón bắp chân từng chân với tạ đơn' }
     ],
     guideUrl: 'https://www.muscleandstrength.com/exercises/standing-calf-raise.html',
-    videoSearch: 'Standing Calf Raise technique'
+    videoSearch: 'Standing Calf Raise technique',
+    youtubeEmbedId: '-M4-G8p8fmc'
   },
 
   // --- PUSH PULL MIX EXERCISES ---
@@ -334,7 +351,8 @@ export const EXERCISE_DATABASE = {
       { name: 'Chest Supported Lateral Raise', desc: 'Dang vai tựa ngực ghế dốc' }
     ],
     guideUrl: 'https://www.muscleandstrength.com/exercises/cable-lateral-raise.html',
-    videoSearch: 'Cable Lateral Raise form'
+    videoSearch: 'Cable Lateral Raise form',
+    youtubeEmbedId: 'PprzBRy9Pj4'
   },
   'smith shoulder press': {
     name: 'Smith Shoulder Press',
@@ -352,7 +370,8 @@ export const EXERCISE_DATABASE = {
       { name: 'Shoulder Press Machine', desc: 'Máy đẩy vai cô lập' }
     ],
     guideUrl: 'https://www.muscleandstrength.com/exercises/smith-machine-shoulder-press.html',
-    videoSearch: 'Smith Machine Shoulder Press guide'
+    videoSearch: 'Smith Machine Shoulder Press guide',
+    youtubeEmbedId: 't6v9Vlh3Z6U'
   },
   'smith incline press': {
     name: 'Smith Incline Press',
@@ -370,7 +389,8 @@ export const EXERCISE_DATABASE = {
       { name: 'Incline Cable Press', desc: 'Đẩy ngực trên với dây cáp' }
     ],
     guideUrl: 'https://www.muscleandstrength.com/exercises/smith-machine-incline-bench-press.html',
-    videoSearch: 'Smith Incline Press execution'
+    videoSearch: 'Smith Incline Press execution',
+    youtubeEmbedId: 'vthMCtgVtFw'
   },
   'reverse face rope triceps pushdown': {
     name: 'Reverse Face Rope Triceps Pushdown',
@@ -388,7 +408,8 @@ export const EXERCISE_DATABASE = {
       { name: 'Dips', desc: 'Xà kép tập tay sau' }
     ],
     guideUrl: 'https://www.muscleandstrength.com/exercises/tricep-rope-pushdown.html',
-    videoSearch: 'Rope Triceps Pushdown technique'
+    videoSearch: 'Rope Triceps Pushdown technique',
+    youtubeEmbedId: 'vB5OHsJ3EME'
   },
   'assisted pull up': {
     name: 'Assisted Pull Up',
@@ -406,7 +427,8 @@ export const EXERCISE_DATABASE = {
       { name: 'Band Assisted Pull Up', desc: 'Hít xà trợ lực bằng dây kháng lực' }
     ],
     guideUrl: 'https://www.muscleandstrength.com/exercises/assisted-pull-up.html',
-    videoSearch: 'Assisted Pull Up machine form'
+    videoSearch: 'Assisted Pull Up machine form',
+    youtubeEmbedId: 'eGo4IYlbE5g'
   },
   'bench support incline cable curl': {
     name: 'Bench Support Incline Cable Curl',
@@ -424,7 +446,8 @@ export const EXERCISE_DATABASE = {
       { name: 'Spider Curl', desc: 'Cuốn tay trước nằm úp trên ghế dốc' }
     ],
     guideUrl: 'https://www.muscleandstrength.com/exercises/incline-dumbbell-curl.html',
-    videoSearch: 'Incline Cable Curl biceps tutorial'
+    videoSearch: 'Incline Cable Curl biceps tutorial',
+    youtubeEmbedId: 'soxrZlIl35U'
   },
 
   // --- LOWER EXERCISES ---
@@ -444,7 +467,8 @@ export const EXERCISE_DATABASE = {
       { name: 'Cable Hip Adduction', desc: 'Ép đùi trong với dây cáp cổ chân' }
     ],
     guideUrl: 'https://www.muscleandstrength.com/exercises/thigh-adductor.html',
-    videoSearch: 'Seated Hip Adductor Machine guide'
+    videoSearch: 'Seated Hip Adductor Machine guide',
+    youtubeEmbedId: 'S_bTth2u944'
   },
   'dumbbell rdl': {
     name: 'Dumbbell RDL (Romanian Deadlift)',
@@ -462,7 +486,8 @@ export const EXERCISE_DATABASE = {
       { name: 'Good Mornings', desc: 'Cúi người chào buổi sáng với thanh đòn' }
     ],
     guideUrl: 'https://www.muscleandstrength.com/exercises/dumbbell-romanian-deadlift.html',
-    videoSearch: 'Dumbbell Romanian Deadlift form tutorial'
+    videoSearch: 'Dumbbell Romanian Deadlift form tutorial',
+    youtubeEmbedId: '_oyxCn2iSjU'
   },
   'seated leg curl': {
     name: 'Seated Leg Curl',
@@ -480,7 +505,8 @@ export const EXERCISE_DATABASE = {
       { name: 'Nordic Hamstring Curl', desc: 'Quỳ gối gập đùi sau kiểu Nordic' }
     ],
     guideUrl: 'https://www.muscleandstrength.com/exercises/seated-leg-curl.html',
-    videoSearch: 'Seated Leg Curl machine guide'
+    videoSearch: 'Seated Leg Curl machine guide',
+    youtubeEmbedId: 'ELOCsoDSmrg'
   },
   'hip thrust': {
     name: 'Hip Thrust',
@@ -498,7 +524,8 @@ export const EXERCISE_DATABASE = {
       { name: 'Single Leg Hip Thrust', desc: 'Đẩy hông mông từng chân' }
     ],
     guideUrl: 'https://www.muscleandstrength.com/exercises/barbell-hip-thrust.html',
-    videoSearch: 'Barbell Hip Thrust proper form'
+    videoSearch: 'Barbell Hip Thrust proper form',
+    youtubeEmbedId: 'LM8XHLYJoYs'
   },
   'seated calf raise': {
     name: 'Seated Calf Raise',
@@ -513,10 +540,11 @@ export const EXERCISE_DATABASE = {
     alternatives: [
       { name: 'Standing Calf Raise', desc: 'Nhón bắp chân đứng' },
       { name: 'Leg Press Calf Raise', desc: 'Nhón bắp chân trên máy đạp đùi' },
-      { name: 'Dumbbell Seated Calf Raise', desc: 'Nhón bắp chân ngồi đè tạ đơn lên đùi' }
+      { name: 'Single Leg Calf Raise', desc: 'Nhón bắp chân ngồi đè tạ đơn lên đùi' }
     ],
     guideUrl: 'https://www.muscleandstrength.com/exercises/seated-calf-raise.html',
-    videoSearch: 'Seated Calf Raise form tutorial'
+    videoSearch: 'Seated Calf Raise form tutorial',
+    youtubeEmbedId: 'JbyjNymZOt0'
   }
 };
 
@@ -559,6 +587,7 @@ export function getExerciseDetails(exerciseName) {
       { name: 'Bài tập máy cô lập', desc: 'Tập trên máy chuyên dụng' }
     ],
     guideUrl: `https://www.muscleandstrength.com/exercises?search=${encodeURIComponent(exerciseName)}`,
-    videoSearch: `${exerciseName} proper form guide`
+    videoSearch: `${exerciseName} proper form guide`,
+    youtubeEmbedId: 'eG9iU9wuUu4'
   };
 }
