@@ -4,7 +4,7 @@ import react from '@vitejs/plugin-react';
 export default defineConfig({
   plugins: [react()],
   root: 'frontend',
-  base: '/testfitness/', // Base URL for GitHub Pages subfolder deployment
+  base: './', // Relative base URL for universal compatibility
   build: {
     outDir: '../dist',
     emptyOutDir: true
