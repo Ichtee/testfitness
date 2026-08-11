@@ -12,7 +12,7 @@ const DAYS = [
   { key: 'All', label: 'Cả Tuần', sub: 'All' },
 ];
 
-const CATEGORIES = ['All', 'Exercise', 'Nutrition', 'Hydration', 'Recovery', 'Sleep'];
+const CATEGORIES = ['All', 'Exercise', 'Recovery'];
 
 export default function ChecklistTimeline({
   tasks,
